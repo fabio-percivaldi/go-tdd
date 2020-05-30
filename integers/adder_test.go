@@ -1,6 +1,9 @@
 package integers
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 func TestAdder(t *testing.T) {
 	sum := Add(2, 2)
@@ -17,7 +20,6 @@ func assertAdditionIsCorrect(t *testing.T, got, want int, numbers []int) {
 	}
 }
 func TestMultipleAdder(t *testing.T) {
-
 	t.Run("multiple adder return 15 with [1, 2, 3, 4, 5]", func(t *testing.T) {
 		numbers := []int{1, 2, 3, 4, 5}
 		got := MultipleAdd(numbers)
@@ -32,5 +34,16 @@ func TestMultipleAdder(t *testing.T) {
 		want := 6
 
 		assertAdditionIsCorrect(t, got, want, numbers)
+	})
+}
+
+func TestSumAll(t *testing.T) {
+	t.Run("Sum all works with two slices", func(t *testing.T) {
+		got := SumAll([]int{1, 2}, []int{0, 9})
+		want := []int{3, 9}
+
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got %v want %v", got, want)
+		}
 	})
 }
