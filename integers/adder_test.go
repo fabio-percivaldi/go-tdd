@@ -26,14 +26,6 @@ func TestMultipleAdder(t *testing.T) {
 		assertAdditionIsCorrect(t, got, want, numbers)
 	})
 
-	t.Run("multiple adder return 10 with [2, 2, 2, 2, 2]", func(t *testing.T) {
-		numbers := []int{2, 2, 2, 2, 2}
-		got := MultipleAdd(numbers)
-		want := 10
-
-		assertAdditionIsCorrect(t, got, want, numbers)
-	})
-
 	t.Run("multiple adder works with any size", func(t *testing.T) {
 		numbers := []int{2, 2, 2}
 		got := MultipleAdd(numbers)
