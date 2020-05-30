@@ -47,3 +47,14 @@ func TestSumAll(t *testing.T) {
 		}
 	})
 }
+
+func TestSumAllTails(t *testing.T) {
+	t.Run("Sum all tails sum all numbers expect the first one", func(t *testing.T) {
+		got := SumAllTails([]int{1, 2, 3}, []int{0, 9, 1})
+		want := []int{5, 10}
+
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got %v want %v", got, want)
+		}
+	})
+}
