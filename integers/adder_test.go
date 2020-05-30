@@ -11,7 +11,7 @@ func TestAdder(t *testing.T) {
 	}
 }
 
-func assertAdditionIsCorrect(t *testing.T, got, want int, numbers [5]int) {
+func assertAdditionIsCorrect(t *testing.T, got, want int, numbers []int) {
 	if got != want {
 		t.Errorf("got %d want %d given, %v", got, want, numbers)
 	}
@@ -19,7 +19,7 @@ func assertAdditionIsCorrect(t *testing.T, got, want int, numbers [5]int) {
 func TestMultipleAdder(t *testing.T) {
 
 	t.Run("multiple adder return 15 with [1, 2, 3, 4, 5]", func(t *testing.T) {
-		numbers := [5]int{1, 2, 3, 4, 5}
+		numbers := []int{1, 2, 3, 4, 5}
 		got := MultipleAdd(numbers)
 		want := 15
 
@@ -27,9 +27,17 @@ func TestMultipleAdder(t *testing.T) {
 	})
 
 	t.Run("multiple adder return 10 with [2, 2, 2, 2, 2]", func(t *testing.T) {
-		numbers := [5]int{2, 2, 2, 2, 2}
+		numbers := []int{2, 2, 2, 2, 2}
 		got := MultipleAdd(numbers)
 		want := 10
+
+		assertAdditionIsCorrect(t, got, want, numbers)
+	})
+
+	t.Run("multiple adder works with any size", func(t *testing.T) {
+		numbers := []int{2, 2, 2}
+		got := MultipleAdd(numbers)
+		want := 6
 
 		assertAdditionIsCorrect(t, got, want, numbers)
 	})

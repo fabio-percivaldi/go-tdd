@@ -6,7 +6,7 @@ func Add(first, second int) int {
 }
 
 // MultipleAdd acceptc an array of int and return the sum
-func MultipleAdd(numbers [5]int) (sum int) {
+func MultipleAdd(numbers []int) (sum int) {
 	for _, addend := range numbers {
 		sum += addend
 	}
